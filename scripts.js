@@ -2,38 +2,11 @@
 const screen1 = document.querySelector(".screen1")
 const screen2 = document.querySelector(".screen2")
 
-
-
 // Eventos
-btnTry.addEventListener('click', handleTryClick)
-btnReset.addEventListener('click', handleResetClick)
+cookie.addEventListener('click', toggleScreen)
+btnReset.addEventListener('click', toggleScreen)
 
 // funções
-
-
-
-function handleTryClick(event) {
-    event.preventDefault() // nao faca o padrao
-
-    let randomNumber = Math.round(Math.random() * 10)
-
-    const inputNumber = document.querySelector("#inputNumber")
-
-    if(Number(inputNumber.value) == randomNumber) {
-        toggleScreen()
-        screen2.querySelector("h2").innerText = `Acertou em ${xAttempts} tentativas`
-    }
-
-    inputNumber.value = ""
-    xAttempts++
-}
-
-function handleResetClick() {
-    toggleScreen()
-    xAttempts = 1
-    randomNumber = Math.round(Math.random() * 10)
-}
-
 function toggleScreen() {
 
     const randomNumber = Number(Math.round(Math.random() * 5));
@@ -65,6 +38,4 @@ function toggleScreen() {
     screen2.classList.toggle("hide")
 
     screen2.querySelector("h2").innerText = phraseLuck;
-
-
 }
